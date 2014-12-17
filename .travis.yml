@@ -15,6 +15,9 @@ install:
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
+  # Install required dependencies.
+  - ansible-galaxy install geerlingguy.daemonize
+
 script:
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
@@ -29,5 +32,6 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # TODO - Check if mailhog is listening.
+  - lsof -i | grep 1025
+  - lsof -i | grep 8025
   # TODO - Check if an email sent into mailhog is accessible via API.
