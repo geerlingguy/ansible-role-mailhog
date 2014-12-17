@@ -16,7 +16,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 ## Dependencies
 
-None.
+  - geerlingguy.daemonize
 
 ## Example Playbook
 
@@ -32,9 +32,8 @@ None.
 
 ## TODO
 
-  - Preconfigure gogs so installation is simpler/more robust.
-  - Make Gogs version more easily configurable.
-  - (Maybe) add option to build Gogs from source (instead of binary installation).
+  - Document "/usr/sbin/ssmtp -t" for PHP sendmail_path
+  - Update docs.
 
 ## License
 

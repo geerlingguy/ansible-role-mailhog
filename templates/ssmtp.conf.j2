@@ -21,4 +21,4 @@ hostname={{ inventory_hostname }}
 # Are users allowed to set their own From: address?
 # YES - Allow the user to specify their own From: address
 # NO - Use the system generated From: address
-#FromLineOverride=YES
+FromLineOverride={{ ssmtp_from_line_override }}

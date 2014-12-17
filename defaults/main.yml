@@ -6,3 +6,4 @@ ssmtp_mailhub: localhost:1025
 ssmtp_root: postmaster
 ssmtp_authuser: ""
 ssmtp_authpass: ""
+ssmtp_from_line_override: "YES"
