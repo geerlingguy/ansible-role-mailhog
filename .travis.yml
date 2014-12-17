@@ -38,8 +38,7 @@ script:
   - sudo netstat -taupen | grep '8025.*mailhog'
 
   # Send an email via ssmtp.
-  - cat tests/message
-  - cat tests/message | ssmtp janedoe@example.com
+  - cat tests/message | ssmtp johndoe@example.com
 
   # Test retrieving messages via MailHog API.
   - curl http://localhost:8025/api/v1/messages | grep Id
