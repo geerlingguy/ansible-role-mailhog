@@ -7,6 +7,7 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install -y curl
 
 install:
   # Install Ansible.
@@ -40,3 +41,4 @@ script:
   - cat tests/message | ssmtp janedoe@example.com
 
   # TODO - Test retrieving a message via MailHog API.
+  - curl http://localhost:8025/v1/api/messages
