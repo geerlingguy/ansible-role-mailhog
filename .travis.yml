@@ -32,7 +32,11 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
+  # Make sure mailhog is listening on ports 1025 and 8025.
   - sudo netstat -taupen | grep '1025.*mailhog'
   - sudo netstat -taupen | grep '8025.*mailhog'
-  # TODO - Test sending an email via ssmtp
+
+  # Send an email via ssmtp.
+  - cat tests/message | ssmtp janedoe@example.com
+
   # TODO - Test retrieving a message via MailHog API.
