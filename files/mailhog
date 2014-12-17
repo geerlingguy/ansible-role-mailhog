@@ -15,22 +15,41 @@
 # Description:       Enable MailHog.
 ### END INIT INFO
 
+PID=/var/run/mailhog.pid
+LOCK=/var/lock/mailhog.lock
+USER=nobody
+BIN=/opt/mailhog/mailhog
+
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
     echo "Starting mailhog."
-    /etc/firewall.bash
+    daemonize -p $PID -l $LOCK -u $USER $BIN
     ;;
   stop)
-    echo "Stopping mailhog."
-    iptables -F
+    if [ -f $PID ]; then
+      echo "Stopping mailhog.";
+      kill -TERM $(cat $PID);
+      rm -f $PID;
+    else
+      echo "MailHog is not running.";
+    fi
     ;;
   restart)
     echo "Restarting mailhog."
-    /etc/firewall.bash
+    if [ -f $PID ]; then
+      kill -TERM $(cat $PID);
+      rm -f $PID;
+    fi
+    daemonize -p $PID -l $LOCK -u $USER $BIN
     ;;
   status)
-    echo -e "Not implemented"
+    if [ -f $PID ]; then
+      echo "MailHog is running.";
+    else
+      echo "MailHog is not running.";
+      exit 3
+    fi
     ;;
   *)
     echo "Usage: /etc/init.d/mailhog {start|stop|status|restart}"
