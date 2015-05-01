@@ -41,4 +41,4 @@ script:
   - cat tests/message | ssmtp johndoe@example.com
 
   # Test retrieving messages via MailHog API.
-  - curl http://localhost:8025/api/v1/messages | grep Id
+  - curl http://localhost:8025/api/v2/messages | grep id
