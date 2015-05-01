@@ -18,7 +18,7 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    mailhog_binary_url: https://github.com/ian-kent/Go-MailHog/releases/download/0.07/Go-MailHog_linux_amd64
+    mailhog_binary_url: https://github.com/mailhog/MailHog/releases/download/v0.1.6/MailHog_linux_amd64
 
 The MailHog binary that will be installed. You can find the latest version or a 32-bit version by visiting the Go-MailHog GitHub project releases page.
 

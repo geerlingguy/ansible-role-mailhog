@@ -41,13 +41,3 @@
     owner: root
     group: root
     mode: 0644
-
-# - name: Check if Gogs is running.
-#   command: service gogs status
-#   changed_when: false
-#   register: gogs_status
-
-# - name: Ensure Gogs is running.
-#   shell: >
-#     su -c "service gogs start" -s /bin/bash {{ gogs_user }}
-#   when: "'running' not in gogs_status.stdout"
