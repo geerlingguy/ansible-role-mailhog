@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-mailhog.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-mailhog)
 
-Installs [MailHog](https://github.com/ian-kent/Go-MailHog), a Go-based SMTP server and web UI/API for displaying captured emails, on RedHat or Debian-based linux systems. Also installs sSMTP so you can easily redirect local email to the SMTP server.
+Installs [MailHog](https://github.com/ian-kent/Go-MailHog), a Go-based SMTP server and web UI/API for displaying captured emails, on RedHat or Debian-based linux systems.
 
 Also installs sSMTP so you can redirect system mail to MailHog's built-in SMTP server.
 
@@ -26,13 +26,14 @@ The MailHog binary that will be installed. You can find the latest version or a 
 
 The directory into which the MailHog binary will be installed.
 
+    ssmtp_install: yes
     ssmtp_mailhub: localhost:1025
     ssmtp_root: postmaster
     ssmtp_authuser: ""
     ssmtp_authpass: ""
     ssmtp_from_line_override: "YES"
 
-sSMTP options. These should work with MailHog's default configuration.
+sSMTP options. These should work with MailHog's default configuration. Note that this will replace an already existing sendmail binary, set ssmtp_install to `no`to not install it.
 
 ## Dependencies
 

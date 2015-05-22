@@ -2,6 +2,7 @@
 mailhog_binary_url: https://github.com/mailhog/MailHog/releases/download/v0.1.6/MailHog_linux_amd64
 mailhog_install_dir: /opt/mailhog
 
+ssmtp_install: yes
 ssmtp_mailhub: localhost:1025
 ssmtp_root: postmaster
 ssmtp_authuser: ""
