@@ -18,7 +18,7 @@
 PID=/var/run/mailhog.pid
 LOCK=/var/lock/mailhog.lock
 USER=nobody
-BIN=/opt/mailhog/mailhog
+BIN={{ mailhog_install_dir }}/mailhog
 DAEMONIZE_BIN={{ mailhog_daemonize_bin_path }}
 
 # Carry out specific functions when asked to by the system
