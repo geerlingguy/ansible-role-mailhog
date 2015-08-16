@@ -26,14 +26,17 @@ The MailHog binary that will be installed. You can find the latest version or a 
 
 The directory into which the MailHog binary will be installed.
 
-    ssmtp_install: yes
+    mailhog_install_ssmtp: true
+
+Whether or not this role should additionally install ssmtp (which will replace any existing sendmail binary). If set to `false`, none of the `ssmtp_*` variables will have an effect.
+
     ssmtp_mailhub: localhost:1025
     ssmtp_root: postmaster
     ssmtp_authuser: ""
     ssmtp_authpass: ""
     ssmtp_from_line_override: "YES"
 
-sSMTP options. These should work with MailHog's default configuration. Note that this will replace an already existing sendmail binary, set ssmtp_install to `no`to not install it.
+sSMTP options. These should work with MailHog's default configuration.
 
 ## Dependencies
 

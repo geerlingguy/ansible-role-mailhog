@@ -29,10 +29,10 @@
 
 # Install and configure sSMTP.
 - include: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat' and ssmtp_install
+  when: ansible_os_family == 'RedHat' and mailhog_install_ssmtp
 
 - include: setup-Debian.yml
-  when: ansible_os_family == 'Debian' and ssmtp_install
+  when: ansible_os_family == 'Debian' and mailhog_install_ssmtp
 
 - name: Copy sSMTP configuration.
   template:
@@ -41,4 +41,4 @@
     owner: root
     group: root
     mode: 0644
-  when: ssmtp_install
+  when: mailhog_install_ssmtp
