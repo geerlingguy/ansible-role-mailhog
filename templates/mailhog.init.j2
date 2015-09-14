@@ -19,12 +19,13 @@ PID=/var/run/mailhog.pid
 LOCK=/var/lock/mailhog.lock
 USER=nobody
 BIN=/opt/mailhog/mailhog
+DAEMONIZE_BIN={{ mailhog_daemonize_bin_path }}
 
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
     echo "Starting mailhog."
-    daemonize -p $PID -l $LOCK -u $USER $BIN
+    $DAEMONIZE_BIN -p $PID -l $LOCK -u $USER $BIN
     ;;
   stop)
     if [ -f $PID ]; then
@@ -41,7 +42,7 @@ case "$1" in
       kill -TERM $(cat $PID);
       rm -f $PID;
     fi
-    daemonize -p $PID -l $LOCK -u $USER $BIN
+    $DAEMONIZE_BIN -p $PID -l $LOCK -u $USER $BIN
     ;;
   status)
     if [ -f $PID ]; then

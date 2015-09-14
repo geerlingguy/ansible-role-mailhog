@@ -26,6 +26,10 @@ The MailHog binary that will be installed. You can find the latest version or a 
 
 The directory into which the MailHog binary will be installed.
 
+    mailhog_daemonize_bin_path: /usr/local/sbin/daemonize
+
+The path to `daemonize`, which is used to launch MailHog via init script
+
     mailhog_install_ssmtp: true
 
 Whether or not this role should additionally install ssmtp (which will replace any existing sendmail binary). If set to `false`, none of the `ssmtp_*` variables will have an effect.
