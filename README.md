@@ -26,7 +26,7 @@ The MailHog binary that will be installed. You can find the latest version or a 
 
 The directory into which the MailHog binary will be installed.
 
-    mailhog_daemonize_bin_path: /usr/local/sbin/daemonize
+    mailhog_daemonize_bin_path: /usr/sbin/daemonize
 
 The path to `daemonize`, which is used to launch MailHog via init script
 
