@@ -49,9 +49,6 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # Ensure mailhog is running.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm service mailhog status'
-
   # TODO - Fix the following tests so they run inside Docker.
   # Make sure mailhog is listening on ports 1025 and 8025.
   # - sudo netstat -taupen | grep '1025.*mailhog'
