@@ -1,4 +1,5 @@
 ---
+sudo: required
 language: python
 python: "2.7"
 
@@ -42,3 +43,6 @@ script:
 
   # Test retrieving messages via MailHog API.
   - curl http://localhost:8025/api/v2/messages | grep id
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
