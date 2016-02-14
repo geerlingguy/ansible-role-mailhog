@@ -9,6 +9,7 @@
         - unzip
         - sudo
         - which
+        - net-tools
       when: ansible_os_family == 'RedHat'
 
     - name: Ensure build dependencies are installed (Debian).
@@ -18,6 +19,7 @@
         - unzip
         - tar
         - sudo
+        - net-tools
       when: ansible_os_family == 'Debian'
 
   roles:
