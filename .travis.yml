@@ -49,16 +49,15 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # TODO - Fix the following tests so they run inside Docker.
   # Make sure mailhog is listening on ports 1025 and 8025.
-  # - sudo netstat -taupen | grep '1025.*mailhog'
-  # - sudo netstat -taupen | grep '8025.*mailhog'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep \'1025.*mailhog\''
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep \'8025.*mailhog\''
 
   # Send an email via ssmtp.
-  # - cat tests/message | ssmtp johndoe@example.com
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm cat /etc/ansible/roles/role_under_test/tests/message | ssmtp johndoe@example.com'
 
   # Test retrieving messages via MailHog API.
-  # - curl http://localhost:8025/api/v2/messages | grep id
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl http://localhost:8025/api/v2/messages | grep id'
 
   # Clean up
   - 'sudo docker stop "$(cat ${container_id})"'
