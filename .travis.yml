@@ -50,8 +50,8 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Make sure mailhog is listening on ports 1025 and 8025.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep \'1025.*mailhog\''
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep \'8025.*mailhog\''
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep "1025.*mailhog"'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sudo netstat -taupen | grep "8025.*mailhog"'
 
   # Send a test email via ssmtp.
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm cat /etc/ansible/roles/role_under_test/tests/message | ssmtp johndoe@example.com'
