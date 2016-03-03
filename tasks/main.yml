@@ -11,7 +11,7 @@
 - name: Download MailHog binary.
   get_url:
     url: "{{ mailhog_binary_url }}"
-    dest: "{{ mailhog_install_dir }}/mailhog"
+    dest: "{{ mailhog_install_dir }}"
     owner: root
     group: root
     mode: 0755
