@@ -1,16 +1,7 @@
 ---
-mailhog_binary_url: https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
 mailhog_install_dir: /opt/mailhog
+mailhog_binary_url: https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
+mhsendmail_binary_url: https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64
 
 # Path to daemonize, which is used to launch MailHog via init script.
 mailhog_daemonize_bin_path: /usr/sbin/daemonize
-
-# Controls whether or not ssmtp will be installed.
-mailhog_install_ssmtp: true
-
-# ssmtp configuration.
-ssmtp_mailhub: localhost:1025
-ssmtp_root: postmaster
-ssmtp_authuser: ""
-ssmtp_authpass: ""
-ssmtp_from_line_override: "YES"

@@ -8,13 +8,18 @@
     state: directory
     mode: 0755
 
-- name: Download MailHog binary.
+- name: Download MailHog and mhsendmail binaries.
   get_url:
-    url: "{{ mailhog_binary_url }}"
-    dest: "{{ mailhog_install_dir }}/mailhog"
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
     owner: root
     group: root
     mode: 0755
+  with_items:
+    - url: "{{ mailhog_binary_url }}"
+      dest: "{{ mailhog_install_dir }}/mailhog"
+    - url: "{{ mhsendmail_binary_url }}"
+      dest: "{{ mailhog_install_dir }}/mhsendmail"
 
 - name: Copy mailhog init script into place.
   template:
@@ -26,19 +31,3 @@
 
 - name: Ensure mailhog is enabled and will start on boot.
   service: name=mailhog state=started enabled=yes
-
-# Install and configure sSMTP.
-- include: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat' and mailhog_install_ssmtp
-
-- include: setup-Debian.yml
-  when: ansible_os_family == 'Debian' and mailhog_install_ssmtp
-
-- name: Copy sSMTP configuration.
-  template:
-    src: ssmtp.conf.j2
-    dest: /etc/ssmtp/ssmtp.conf
-    owner: root
-    group: root
-    mode: 0644
-  when: mailhog_install_ssmtp
