@@ -16,8 +16,10 @@
     group: root
     mode: 0755
   with_items:
-    - { url: "{{ mailhog_binary_url }}", dest: "{{ mailhog_install_dir }}/mailhog" }
-    - { url: "{{ mhsendmail_binary_url }}", dest: "{{ mailhog_install_dir }}/mhsendmail" }
+    - url: "{{ mailhog_binary_url }}"
+      dest: "{{ mailhog_install_dir }}/mailhog"
+    - url: "{{ mhsendmail_binary_url }}"
+      dest: "{{ mailhog_install_dir }}/mhsendmail"
 
 - name: Copy mailhog init script into place.
   template:
