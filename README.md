@@ -36,10 +36,6 @@ The path to `daemonize`, which is used to launch MailHog via init script.
 
 The mhsendmail binary that will be installed. You can find the latest version or a 32-bit version by visiting the [mhsendmail project releases page](https://github.com/mailhog/mhsendmail/releases).
 
-After installation, if you're using `mhsendmail` as a sendmail alternative, you need to update your application server's configuration to use the full path to `mhsendmail`. For example, to override PHP's `sendmail_path`, using the default settings for this role, add the following to `php.ini`:
-
-    sendmail_path = /opt/mailhog/mhsendmail
-
 ## Dependencies
 
   - geerlingguy.daemonize
