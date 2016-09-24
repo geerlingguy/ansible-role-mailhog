@@ -45,14 +45,11 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # Make sure mailhog is listening on ports 1025 and 8025.
-  # TODO.
-
   # Send an email via mhsendmail.
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sh -c "cat /etc/ansible/roles/role_under_test/tests/message | /opt/mailhog/mhsendmail johndoe@example.com"'
 
   # Test retrieving messages via MailHog API.
-  - 'curl http://localhost:8025/api/v2/messages | grep id'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm sh -c "curl http://localhost:8025/api/v2/messages | grep id"'
 
 after_success:
   # Clean up.
