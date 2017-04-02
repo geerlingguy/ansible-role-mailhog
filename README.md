@@ -32,7 +32,7 @@ The MailHog binary that will be installed. You can find the latest version or a 
 
 The path to `daemonize`, which is used to launch MailHog via init script.
 
-    mhsendmail_binary_url: https://github.com/mailhog/mhsendmail/releases/download/v0.2.1/mhsendmail_linux_amd64
+    mhsendmail_binary_url: https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64
 
 The mhsendmail binary that will be installed. You can find the latest version or a 32-bit version by visiting the [mhsendmail project releases page](https://github.com/mailhog/mhsendmail/releases).
 
