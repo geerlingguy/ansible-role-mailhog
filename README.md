@@ -36,6 +36,18 @@ The path to `daemonize`, which is used to launch MailHog via init script.
 
 The mhsendmail binary that will be installed. You can find the latest version or a 32-bit version by visiting the [mhsendmail project releases page](https://github.com/mailhog/mhsendmail/releases).
 
+## Overriding templates
+
+If you want to configure MailHog using one of the [MailHog Configuration options](https://github.com/mailhog/MailHog/blob/master/docs/CONFIG.md) which 
+you can't customize via variables because an option isn't exposed, you can override the template used to start MailHog.
+
+```yaml
+mailhog_init_template: mailhog.init.j2
+mailhog_unit_template: mailhog.unit.j2
+```
+
+You can either copy and modify the provided template, or extend it with [Jinja2 template inheritance](http://jinja.pocoo.org/docs/2.9/templates/#template-inheritance) and override the specific template block you need to change.
+
 ## Dependencies
 
   - geerlingguy.daemonize

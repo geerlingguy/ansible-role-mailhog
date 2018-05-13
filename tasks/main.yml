@@ -23,21 +23,25 @@
 
 - name: Copy mailhog init script into place.
   template:
-    src: mailhog.init.j2
+    src: "{{ mailhog_init_template }}"
     dest: /etc/init.d/mailhog
     owner: root
     group: root
     mode: 0755
   when: "ansible_service_mgr != 'systemd'"
+  notify: restart mailhog
 
 - name: Copy mailhog systemd unit file into place (for systemd systems).
   template:
-    src: mailhog.unit.j2
+    src: "{{ mailhog_unit_template }}"
     dest: /etc/systemd/system/mailhog.service
     owner: root
     group: root
     mode: 0755
   when: "ansible_service_mgr == 'systemd'"
+  notify:
+    - systemd daemon reload
+    - restart mailhog
 
 - name: Ensure mailhog is enabled and will start on boot.
   service: name=mailhog state=started enabled=yes

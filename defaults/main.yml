@@ -5,3 +5,6 @@ mhsendmail_binary_url: https://github.com/mailhog/mhsendmail/releases/download/v
 
 # Path to daemonize, which is used to launch MailHog via init script.
 mailhog_daemonize_bin_path: /usr/sbin/daemonize
+
+mailhog_init_template: mailhog.init.j2
+mailhog_unit_template: mailhog.unit.j2
