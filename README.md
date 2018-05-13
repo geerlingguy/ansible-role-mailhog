@@ -38,7 +38,7 @@ The path to `daemonize`, which is used to launch MailHog via init script.
 
     mhsendmail_version: 0.2.0
     
-The version of the mhsendmail binary that will installed. You can find the latet version by visiting the [mhsendmail project releases page](https://github.com/mailhog/mhsendmail/releases).
+The version of the mhsendmail binary that will be installed. You can find the latest version by visiting the [mhsendmail project releases page](https://github.com/mailhog/mhsendmail/releases).
 
     mhsendmail_binary_url: "https://github.com/mailhog/mhsendmail/releases/download/v{{ mhsendmail_version }}/mhsendmail_linux_amd64"
 
