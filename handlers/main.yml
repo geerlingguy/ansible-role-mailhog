@@ -1,0 +1,7 @@
+---
+- name: systemd daemon reload
+  command: systemctl daemon-reload
+- name: restart mailhog
+  service:
+    name=mailhog
+    state=restarted
