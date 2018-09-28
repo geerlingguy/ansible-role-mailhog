@@ -42,6 +42,7 @@
 
     - name: Send an email via mhsendmail.
       shell: cat /tmp/test-message | /opt/mailhog/mhsendmail johndoe@example.com
+      changed_when: false
 
     - name: Test retrieiving messages from the MailHog API.
       uri:
