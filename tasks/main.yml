@@ -39,5 +39,19 @@
     mode: 0755
   when: "ansible_service_mgr == 'systemd'"
 
+- name: Generate the MailHog UI password.
+  command: "{{ mailhog_install_dir }}/mailhog bcrypt {{ mailhog_auth_password }}"
+  register: mailhog_auth_password_hash
+  when: mailhog_auth_user | length > 0
+  changed_when: no
+  check_mode: no
+  ignore_errors: "{{ ansible_check_mode }}"
+
+- name: Create MailHog UI auth file.
+  copy:
+    content: "{{ mailhog_auth_user }}:{{ mailhog_auth_password_hash.stdout }}"
+    dest: "{{ mailhog_install_dir }}/auth"
+  when: mailhog_auth_user | length > 0
+
 - name: Ensure mailhog is enabled and will start on boot.
   service: name=mailhog state=started enabled=yes
