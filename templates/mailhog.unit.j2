@@ -4,7 +4,9 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-ExecStart={{ mailhog_install_dir }}/mailhog {% if mailhog_auth_user | length > 0 %}-auth-file={{ mailhog_install_dir }}/auth {% endif %}
+ExecStart={{ mailhog_install_dir }}/mailhog \
+  {% if mailhog_bind_addr | length > 0 %}-api-bind-addr={{ mailhog_bind_addr }} -ui-bind-addr={{ mailhog_bind_addr }}{% endif %} \
+  {% if mailhog_auth_user | length > 0 %}-auth-file={{ mailhog_install_dir }}/auth {% endif %}
 
 StandardOutput=journal
 Restart=on-failure

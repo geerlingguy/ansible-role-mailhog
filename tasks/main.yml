@@ -43,8 +43,8 @@
   command: "{{ mailhog_install_dir }}/mailhog bcrypt {{ mailhog_auth_password }}"
   register: mailhog_auth_password_hash
   when: mailhog_auth_user | length > 0
-  changed_when: false
-  check_mode: false
+  changed_when: no
+  check_mode: no
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Create MailHog UI auth file.
