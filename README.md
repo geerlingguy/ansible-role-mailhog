@@ -24,7 +24,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The directory into which the MailHog binary will be installed.
 
-    mailhog_version: 0.2.1
+    mailhog_version: 1.0.0
 
 The version of MailHog that will be installed. You can find the latest version by visiting the [MailHog project releases page](https://github.com/mailhog/MailHog/releases).
 
