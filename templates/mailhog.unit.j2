@@ -4,9 +4,20 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-ExecStart={{ mailhog_install_dir }}/mailhog
+ExecStart={{ mailhog_install_dir }}/mailhog -api-bind-addr 127.0.0.1:8025 -ui-bind-addr 127.0.0.1:8025 -smtp-bind-addr 127.0.0.1:1025
 StandardOutput=journal
 Restart=on-failure
+PrivateDevices=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectSystem=full
+RestrictSUIDSGID=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
