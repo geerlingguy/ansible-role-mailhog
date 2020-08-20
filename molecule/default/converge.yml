@@ -39,6 +39,7 @@
       copy:
         src: test-message
         dest: /tmp/test-message
+        mode: 0644
 
     - name: Send an email via mhsendmail.
       shell: cat /tmp/test-message | /opt/mailhog/mhsendmail johndoe@example.com
