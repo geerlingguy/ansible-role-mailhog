@@ -1,6 +1,6 @@
 # Ansible Role: MailHog
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-mailhog.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-mailhog)
+[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-mailhog.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-mailhog)
 
 Installs [MailHog](https://github.com/mailhog/MailHog), a Go-based SMTP server and web UI/API for displaying captured emails, on RedHat or Debian-based linux systems.
 
