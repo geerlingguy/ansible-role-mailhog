@@ -8,18 +8,17 @@
     state: directory
     mode: 0755
 
-- name: Download MailHog and mhsendmail binaries.
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: 0755
-  with_items:
-    - url: "{{ mailhog_binary_url }}"
-      dest: "{{ mailhog_install_dir }}/mailhog"
-    - url: "{{ mhsendmail_binary_url }}"
-      dest: "{{ mailhog_install_dir }}/mhsendmail"
+- name: Install mhsendmail binaries
+  command: go get github.com/mailhog/MailHog
+
+- name: Install mhsendmail binaries
+  command: go get github.com/mailhog/mhsendmail
+
+- name: Move mhsendmail
+  command: mv /root/go/bin/mhsendmail "{{ mailhog_install_dir }}/mhsendmail"
+
+- name: Move MailHog
+  command: mv /root/go/bin/MailHog "{{ mailhog_install_dir }}/mailhog"
 
 - name: Copy mailhog init script into place.
   template:
