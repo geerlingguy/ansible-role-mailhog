@@ -1,9 +1,10 @@
 ---
+mailhog_arch: "{{ 'arm' if ansible_architecture == 'aarch64' else 'amd64' }}"
 mailhog_install_dir: /opt/mailhog
 mailhog_version: 1.0.0
-mailhog_binary_url: "https://github.com/mailhog/MailHog/releases/download/v{{ mailhog_version }}/MailHog_linux_amd64"
+mailhog_binary_url: "https://github.com/mailhog/MailHog/releases/download/v{{ mailhog_version }}/MailHog_linux_{{ mailhog_arch }}"
 mhsendmail_version: 0.2.0
-mhsendmail_binary_url: "https://github.com/mailhog/mhsendmail/releases/download/v{{ mhsendmail_version }}/mhsendmail_linux_amd64"
+mhsendmail_binary_url: "https://github.com/mailhog/mhsendmail/releases/download/v{{ mhsendmail_version }}/mhsendmail_linux_{{ mailhog_arch }}"
 
 # Path to daemonize, which is used to launch MailHog via init script.
 mailhog_daemonize_bin_path: /usr/sbin/daemonize
