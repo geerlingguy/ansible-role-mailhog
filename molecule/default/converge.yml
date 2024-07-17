@@ -9,7 +9,7 @@
       when: ansible_os_family == 'Debian'
 
     - name: Ensure build dependencies are installed (RedHat).
-      package:
+      dnf:
         name:
           - "@Development tools"
           - tar
@@ -17,6 +17,7 @@
           - net-tools
           - curl
         state: present
+        allowerasing: true
       when: ansible_os_family == 'RedHat'
 
     - name: Ensure build dependencies are installed (Debian).
