@@ -1,6 +1,6 @@
 # Ansible Role: MailHog
 
-[![CI](https://github.com/geerlingguy/ansible-role-mailhog/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-mailhog/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-mailhog/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-mailhog/actions/workflows/ci.yml)
 
 Installs [MailHog](https://github.com/mailhog/MailHog), a Go-based SMTP server and web UI/API for displaying captured emails, on RedHat or Debian-based linux systems.
 
