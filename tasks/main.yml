@@ -28,7 +28,7 @@
     owner: root
     group: root
     mode: 0755
-  when: "ansible_service_mgr != 'systemd'"
+  when: "ansible_facts.service_mgr != 'systemd'"
 
 - name: Copy mailhog systemd unit file into place (for systemd systems).
   template:
@@ -37,7 +37,7 @@
     owner: root
     group: root
     mode: 0755
-  when: "ansible_service_mgr == 'systemd'"
+  when: "ansible_facts.service_mgr == 'systemd'"
 
 - name: Ensure mailhog is enabled and will start on boot.
   service: name=mailhog state=started enabled=yes
